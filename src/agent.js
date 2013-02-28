@@ -354,10 +354,18 @@ clippy.Agent.prototype = {
         var bH = this._el.outerHeight();
         var bW = this._el.outerWidth();
 
-        var wW = $(window).width();
+        /*
+		var wW = $(window).width();
         var wH = $(window).height();
         var sT = $(window).scrollTop();
         var sL = $(window).scrollLeft();
+		*/
+
+        /* FIX ISSUE WITH DISAPPEAR OFF PAGE ON DRAG */
+		var wW = $(document).width();
+        var wH = $(document).height();
+        var sT = $(document).scrollTop();
+        var sL = $(document).scrollLeft();
 
         var top = o.top - sT;
         var left = o.left - sL;

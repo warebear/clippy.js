@@ -1,4 +1,5 @@
-clippy.BASE_PATH = 'http://clippy.js.s3.amazonaws.com/Agents/';
+/*clippy.BASE_PATH = 'http://clippy.js.s3.amazonaws.com/Agents/';*/
+clippy.BASE_PATH = '../agents/'; /* USE PROVIDED AGENTS FOLDER */
 
 clippy.load = function (name, successCb, failCb) {
     var path = clippy.BASE_PATH + name;
@@ -92,7 +93,8 @@ clippy.load._loadScript = function (src) {
     script.setAttribute('async', 'async');
     script.setAttribute('type', 'text/javascript');
 
-    document.head.appendChild(script);
+    /* document.head.appendChild(script); */
+     document.getElementsByTagName('head')[0].appendChild(script); /* FIX FOR IE */
 };
 
 clippy.load._getAgentDfd = function (name) {

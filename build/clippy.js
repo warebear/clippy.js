@@ -354,10 +354,10 @@ clippy.Agent.prototype = {
         var bH = this._el.outerHeight();
         var bW = this._el.outerWidth();
 
-        var wW = $(window).width();
-        var wH = $(window).height();
-        var sT = $(window).scrollTop();
-        var sL = $(window).scrollLeft();
+        var wW = $(document).width();
+        var wH = $(document).height();
+        var sT = $(document).scrollTop();
+        var sL = $(document).scrollLeft();
 
         var top = o.top - sT;
         var left = o.left - sL;
@@ -844,7 +844,7 @@ clippy.Balloon.prototype = {
 
 };
 
-clippy.BASE_PATH = 'http://clippy.js.s3.amazonaws.com/Agents/';
+clippy.BASE_PATH = '../agents/';
 
 clippy.load = function (name, successCb, failCb) {
     var path = clippy.BASE_PATH + name;
@@ -938,7 +938,7 @@ clippy.load._loadScript = function (src) {
     script.setAttribute('async', 'async');
     script.setAttribute('type', 'text/javascript');
 
-    document.head.appendChild(script);
+    document.getElementByTagName('head')[0].appendChild(script);
 };
 
 clippy.load._getAgentDfd = function (name) {
